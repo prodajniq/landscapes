@@ -1,0 +1,109 @@
+﻿<Window x:Class="landscapes.Zakaz"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:landscapes"
+        mc:Ignorable="d"
+        WindowStyle="None" 
+        WindowState="Maximized" 
+        ResizeMode="NoResize" 
+        Topmost="True"
+        Title="Zakaz" Height="1080" Width="1920">
+    <Window.Resources>
+        <Style x:Key="RoundedButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="150"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Background" Value="#6D9773"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" Background="{TemplateBinding Background}"
+                                CornerRadius="25"
+                                Padding="10"
+                                BorderThickness="0">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Effect">
+                                    <Setter.Value>
+                                        <DropShadowEffect Color="#A1C181" BlurRadius="10"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid Height="1070" VerticalAlignment="Top">
+        <!-- Добавляем рамку вокруг полей и кнопки -->
+        <Border BorderBrush="#4E7D47" BorderThickness="2" CornerRadius="15" 
+                Margin="1234,330,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                Width="270" Height="250" Background="#F0F8F0">
+            <StackPanel Margin="10">
+                <Label Content="Введите номер телефона*:" FontSize="16" Margin="0,5,0,0"/>
+                <TextBox x:Name="PhoneTextBox" Height="45" FontSize="20" TextAlignment="Center" 
+                         Margin="0,5,0,10" PreviewTextInput="PhoneTextBox_PreviewTextInput"
+                         TextChanged="PhoneTextBox_TextChanged"/>
+
+                <!-- Removed the cart button and adjusted the total field -->
+                <TextBox x:Name="TotalTextBox" Height="45" FontSize="20" 
+                         TextAlignment="Center" IsReadOnly="True" Margin="0,5,0,10"/>
+
+                <Button x:Name="SubmitButton" Content="Купить" Style="{StaticResource RoundedButtonStyle}" 
+                        Width="234" Height="45" FontSize="20" Margin="0,10,0,0"
+                        Click="SubmitButton_Click"/>
+            </StackPanel>
+        </Border>
+
+        <Rectangle Height="60" VerticalAlignment="Top" Fill="#4E7D47"/>
+        <Rectangle Height="60" VerticalAlignment="Top" Margin="0,60,0,0" Fill="#A1C181"/>
+
+        <Image Source="/image/image (1).png" Width="385" Height="167" VerticalAlignment="Top" 
+               HorizontalAlignment="Left" Margin="10,-42,0,0"/>
+
+        <!-- Кнопки домов -->
+        <Button x:Name="btnHouse1" Content="40 м2(1 этаж)" Style="{StaticResource RoundedButtonStyle}" 
+                Background="#A1C181" HorizontalAlignment="Right" VerticalAlignment="Bottom" 
+                Margin="0,0,648,767" Width="187" Height="49" Click="HouseButton_Click"/>
+        <Button x:Name="btnHouse2" Content="60 м2(1 этаж)" Style="{StaticResource RoundedButtonStyle}" 
+                Background="#A1C181" HorizontalAlignment="Right" VerticalAlignment="Bottom" 
+                Margin="0,0,432,767" Width="187" Height="49" Click="HouseButton_Click"/>
+        <Button x:Name="btnHouse3" Content="100 м2(2 этажа)" Style="{StaticResource RoundedButtonStyle}" 
+                Background="#A1C181" HorizontalAlignment="Right" VerticalAlignment="Bottom" 
+                Margin="0,0,648,686" Width="187" Height="49" Click="HouseButton_Click"/>
+        <Button x:Name="btnHouse4" Content="120 м2(2 этажа)" Style="{StaticResource RoundedButtonStyle}" 
+                Background="#A1C181" HorizontalAlignment="Right" VerticalAlignment="Bottom" 
+                Margin="0,0,432,686" Width="187" Height="49" Click="HouseButton_Click"/>
+
+        <!-- Кнопки участков -->
+        <Button x:Name="btnLand1" Content="5 соток" Style="{StaticResource RoundedButtonStyle}" 
+                Background="#A1C181" HorizontalAlignment="Right" VerticalAlignment="Bottom" 
+                Margin="0,0,648,366" Width="187" Height="49" Click="LandButton_Click"/>
+        <Button x:Name="btnLand2" Content="9 соток" Style="{StaticResource RoundedButtonStyle}" 
+                Background="#A1C181" HorizontalAlignment="Right" VerticalAlignment="Bottom" 
+                Margin="0,0,432,366" Width="187" Height="49" Click="LandButton_Click"/>
+        <Button x:Name="btnLand3" Content="15 соток" Style="{StaticResource RoundedButtonStyle}" 
+                Background="#A1C181" HorizontalAlignment="Right" VerticalAlignment="Bottom" 
+                Margin="0,0,648,287" Width="187" Height="49" Click="LandButton_Click"/>
+        <Button x:Name="btnLand4" Content="20 соток" Style="{StaticResource RoundedButtonStyle}" 
+                Background="#A1C181" HorizontalAlignment="Right" VerticalAlignment="Bottom" 
+                Margin="0,0,432,287" Width="187" Height="49" Click="LandButton_Click"/>
+
+        <Label Content="Tranquil Landscapes" HorizontalAlignment="Left" Margin="177,30,0,0" 
+               VerticalAlignment="Top" Height="55" Width="429" FontFamily="Arial Black" 
+               FontSize="36" Foreground="White"/>
+
+        <Image x:Name="HouseImage" HorizontalAlignment="Left" Height="375" Margin="43,120,0,0" 
+               VerticalAlignment="Top" Width="957"/>
+        <Image x:Name="LandImage" HorizontalAlignment="Left" Height="332" Margin="43,506,0,0" 
+               VerticalAlignment="Top" Width="871"/>
+    </Grid>
+</Window>

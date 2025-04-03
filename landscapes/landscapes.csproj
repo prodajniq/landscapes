@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="image\213094-200.png" />
+    <None Remove="image\dizain-landshafta.jpg" />
+    <None Remove="image\image %281%29.png" />
+    <None Remove="image\Д1.jpg" />
+    <None Remove="image\Д2.jpg" />
+    <None Remove="image\Д3.jpg" />
+    <None Remove="image\Д4.jpg" />
+    <None Remove="image\Зем1.jpg" />
+    <None Remove="image\Зем2.jpg" />
+    <None Remove="image\Зем3.jpg" />
+    <None Remove="image\Зем4.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Npgsql" Version="9.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="image\213094-200.png" />
+    <Resource Include="image\dizain-landshafta.jpg" />
+    <Resource Include="image\image (1).png" />
+    <Resource Include="image\1.png" />
+    <Resource Include="image\Д1.jpg" />
+    <Resource Include="image\Д2.jpg" />
+    <Resource Include="image\Д3.jpg" />
+    <Resource Include="image\Д4.jpg" />
+    <Resource Include="image\Зем1.jpg" />
+    <Resource Include="image\Зем2.jpg" />
+    <Resource Include="image\Зем3.jpg" />
+    <Resource Include="image\Зем4.jpg" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,102 @@
+﻿<Window x:Class="landscapes.OrderConfirmation"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:landscapes"
+        mc:Ignorable="d"
+        Title="Подтверждение заказа" Height="650" Width="800"
+        WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style x:Key="RoundedButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="150"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Background" Value="#6D9773"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" Background="{TemplateBinding Background}"
+                                CornerRadius="25"
+                                Padding="10"
+                                BorderThickness="0">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Effect">
+                                    <Setter.Value>
+                                        <DropShadowEffect Color="#A1C181" BlurRadius="10"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="80"/>
+        </Grid.RowDefinitions>
+
+        <!-- Верхняя панель -->
+        <Rectangle Grid.Row="0" Fill="#4E7D47"/>
+        <Label Content="Подтверждение заказа" HorizontalAlignment="Center" VerticalAlignment="Center"
+               FontSize="24" FontWeight="Bold" Foreground="White"/>
+
+        <!-- Таблица с данными заказа -->
+        <Border Grid.Row="1" BorderBrush="#A1C181" BorderThickness="2" Margin="20">
+            <Grid Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Номер телефона -->
+                <Label Grid.Row="0" Grid.Column="0" Content="Номер телефона:" 
+                       FontSize="16" FontWeight="Bold" VerticalAlignment="Center"/>
+                <TextBox Grid.Row="0" Grid.Column="1" x:Name="PhoneTextBox" 
+                         IsReadOnly="True" FontSize="16" Margin="5" Padding="5"
+                         VerticalContentAlignment="Center"/>
+
+                <!-- Общая сумма -->
+                <Label Grid.Row="1" Grid.Column="0" Content="Общая сумма:" 
+                       FontSize="16" FontWeight="Bold" VerticalAlignment="Center"/>
+                <TextBox Grid.Row="1" Grid.Column="1" x:Name="TotalTextBox" 
+                         IsReadOnly="True" FontSize="16" Margin="5" Padding="5"
+                         VerticalContentAlignment="Center"/>
+
+                <!-- Изображение дома -->
+                <Label Grid.Row="2" Grid.Column="0" Content="Выбранный дом:" 
+                       FontSize="16" FontWeight="Bold" VerticalAlignment="Top" Margin="0,10,0,0"/>
+                <Border Grid.Row="2" Grid.Column="1" BorderBrush="#A1C181" BorderThickness="1" Margin="5">
+                    <Image x:Name="HouseImage" Stretch="Uniform" Margin="5"/>
+                </Border>
+
+                <!-- Изображение участка -->
+                <Label Grid.Row="3" Grid.Column="0" Content="Выбранный участок:" 
+                       FontSize="16" FontWeight="Bold" VerticalAlignment="Top" Margin="0,10,0,0"/>
+                <Border Grid.Row="3" Grid.Column="1" BorderBrush="#A1C181" BorderThickness="1" Margin="5">
+                    <Image x:Name="LandImage" Stretch="Uniform" Margin="5"/>
+                </Border>
+            </Grid>
+        </Border>
+
+        <!-- Кнопка оформления заказа -->
+        <Button Grid.Row="2" x:Name="ConfirmButton" Content="Оформить заказ" 
+                Style="{StaticResource RoundedButtonStyle}" Width="200" Height="50"
+                Click="ConfirmButton_Click"/>
+    </Grid>
+</Window>
